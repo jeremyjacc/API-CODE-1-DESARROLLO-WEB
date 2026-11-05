@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div>
+                <h1>Gestión de Clientes</h1>
+                <p class="subtitle">Comunicación con el servidor</p>
+            </div>
+            <div class="actions">
+                <button id="btnRecargar" class="btn">Recargar Lista</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Mensaje de estado (Cargando / Error) -->
+            <div id="estado" class="estado"></div>
+
+            <!-- Contenedor donde se insertará la lista de clientes -->
+            <div id="lista-clientes" class="lista-clientes"></div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
