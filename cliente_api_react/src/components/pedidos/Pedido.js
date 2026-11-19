@@ -15,7 +15,7 @@ const Pedido = ({ pedido = {} }) => {
                         {articulos?.map(articulo => (
                             <li key={articulo.producto?._id || articulo._id}>
                                 <p>{articulo.producto?.nombre}</p>
-                                <p>Precio: ${articulo.producto?.precio}</p>
+                                <p>Precio: {articulo.producto?.precio}</p>
                                 <p>Cantidad: {articulo.cantidad}</p>
                             </li>
                         ))}
