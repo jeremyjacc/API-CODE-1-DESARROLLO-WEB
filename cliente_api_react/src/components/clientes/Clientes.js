@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useEffect } from 'react'
 
-const Cliente = () => {
+const Clientes = () => {
+    const [clientes, guardarClient] = useState([])
+    const consultar_api = async () => {
+        try {
+            const respuesta = await fetch("http://localhost:3000/api/clientes")
+            const datos = await respuesta.json()
+            console.log(datos);
+            guardarClientes(datos)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        consultar_api()
+    }, [])
+
+
     return (
-        <li className="cliente">
-            <div className="info-cliente">
-                <p className="nombre">Juan Pablo De la torre Valdez</p>
-                <p className="empresa">Udemy</p>
-                <p>correo@correo.com</p>
-                <p>Tel: 209109310</p>
-            </div>
-            <div className="acciones">
-                <a href="#" className="btn btn-azul">
-                    <i className="fas fa-pen-alt"></i>
-                    Editar Cliente
-                </a>
-                <button type="button" className="btn btn-rojo btn-eliminar">
-                    <i className="fas fa-times"></i>
-                    Eliminar Cliente
-                </button>
-            </div>
-        </li>
-    );
-};
+        <>
+            <h1>Clientes</h1>
+            <ul>
+                {clientes.map(cliente => (
+                    <Cliente cliente=  /{ cliente } >
+                ))};
+            </ul>
 
-export default Cliente;
+        </>
+    )
+}
+
+export default Clientes
