@@ -2,6 +2,7 @@ const express = require('express');
 const Clientes = require("../models/Clientes");
 const Productos = require('../models/Productos');
 const cliente_controlador = require('../controladores/cliente_controlador');
+const pedido_controlador = require('../controladores/pedido_controlador');
 const router = express.Router();
 module.exports = function () {
 
@@ -21,6 +22,9 @@ module.exports = function () {
 
     })
 
+    // Rutas de Pedidos
+    router.post("/pedidos", pedido_controlador.nuevo_pedido);
+    router.get("/pedidos", pedido_controlador.mostrar_pedidos);
 
     return router
 

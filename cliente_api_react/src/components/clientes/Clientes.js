@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
-
+import React, { useEffect, useState } from "react";
+import Cliente from "./Cliente";
 const Clientes = () => {
-    const [clientes, guardarClient] = useState([])
+    const [clientes, guardarClientes] = useState([])
     const consultar_api = async () => {
         try {
-            const respuesta = await fetch("http://localhost:3000/api/clientes")
+            const respuesta = await fetch("http://localhost:5000/clientes")
             const datos = await respuesta.json()
             console.log(datos);
             guardarClientes(datos)
@@ -17,18 +17,17 @@ const Clientes = () => {
         consultar_api()
     }, [])
 
-
     return (
         <>
             <h1>Clientes</h1>
-            <ul>
+            <ul className="listado-clientes">
                 {clientes.map(cliente => (
-                    <Cliente cliente=  /{ cliente } >
-                ))};
+                    <Cliente key={cliente._id} cliente={cliente} />
+                ))}
             </ul>
 
         </>
+
     )
 }
-
 export default Clientes

@@ -1,14 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from './components/layout/Header.js';
-import Cliente from './components/clientes/cliente';
-import Clientes from './components/clientes/Clientes.js';
-import Pedidos from './components/pedidos/Pedidos.js';
-import Productos from './components/productos/Productos.js';
+import Header from './components/layout/Header';
+import Cliente from './components/Clientes/Cliente';
 import Navegacion from './components/layout/navegacion.js';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-
-
+import Clientes from './components/Clientes/Clientes.js';
+import Pedidos from './components/Pedidos/Pedidos.js';
+import Productos from './components/Productos/Productos.js';
 function App() {
   return (
     <Router>
@@ -18,17 +16,19 @@ function App() {
           <Navegacion></Navegacion>
           <main className='caja-contenido col-9'>
             <Routes>
-              <Route exact path='/' element={<Clientes></Clientes>} > </Route>
-              <Route exact path='/pedidos' element={<Pedidos></Pedidos>} > </Route>
-              <Route exact path='/productos' element={<Productos></Productos>}> </Route>
-
+              <Route path='/' element={<Clientes />} />
+              <Route path='/pedidos' element={<Pedidos />} />
+              <Route path='/Pedidos' element={<Pedidos />} />
+              <Route path='/productos' element={<Productos />} />
+              <Route path='/Productos' element={<Productos />} />
             </Routes>
           </main>
-          <Cliente />
+
+
         </div>
+
       </div>
-    </Router>
+    </Router >
   );
 }
-
 export default App;
